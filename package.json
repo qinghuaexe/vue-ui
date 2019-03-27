@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/qinghuaexe/vue-ui/issues"
   },
-  "homepage": "https://github.com/qinghuaexe/vue-ui#readme"
+  "homepage": "https://github.com/qinghuaexe/vue-ui#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
 }
