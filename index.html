@@ -22,39 +22,27 @@
         --border-color-hover: #666;
       }
       #app {
-        margin: 20px 20px;        
+        margin: 20px 20px;
+        display: inline-block;
       }
       body {
         font-size: var(--font-size);
       }
     </style>
-    <style>
-     @keyframes spin {
-         0%{
-             transform: rotate(0deg)
-         }
-         100%{
-             transform: rotate(360deg)
-         }
-     }
-     .loading{
-         animation: spin 2s infinite linear;
-     }
-    </style>
+    <style></style>
   </head>
   <body>
     <div id="app">
-      <g-button icon="shezhi" icon-position="left">
+      <g-button :loading="loading1" @click="loading1 = !loading1">
         按钮
       </g-button>
-      <g-button icon="shezhi" icon-position="right">
+      <g-button icon="shezhi" icon-position="left" :loading="loading2" @click="loading2 = !loading2">
         按钮
       </g-button>
-      <g-button>
+      <g-button icon="shezhi" icon-position="right" :loading="loading3" @click="loading3 = !loading3">
         按钮
       </g-button>
-      <g-icon name='shezhi'></g-icon>
-      <g-icon name='loading' class="loading"></g-icon>
+      <g-icon name="shezhi"></g-icon>
     </div>
     <script src="/src/app.js"></script>
     <script src="//at.alicdn.com/t/font_1112320_la6m7g2ugc.js"></script>
