@@ -12420,10 +12420,13 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   props: {
     icon: {},
+    loading: {
+      type: Boolean,
+      default: false
+    },
     iconPosition: {
       type: String,
       default: "left",
@@ -12446,20 +12449,33 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "button",
-      { staticClass: "g-button", class: "icon-" + _vm.iconPosition },
-      [
-        _vm.icon
-          ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
-          : _vm._e(),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
-      ],
-      1
-    )
-  ])
+  return _c(
+    "button",
+    {
+      staticClass: "g-button",
+      class: "icon-" + _vm.iconPosition,
+      on: {
+        click: function($event) {
+          return _vm.$emit("click")
+        }
+      }
+    },
+    [
+      _vm.icon && !_vm.loading
+        ? _c("g-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.loading
+        ? _c("g-icon", {
+            staticClass: "loading icon",
+            attrs: { name: "loading" }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [_vm._t("default")], 2)
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12570,12 +12586,17 @@ var _icon = _interopRequireDefault(require("./icon.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue.default.component('g-icon', _icon.default);
+_vue.default.component("g-icon", _icon.default);
 
-_vue.default.component('g-button', _button.default);
+_vue.default.component("g-button", _button.default);
 
 new _vue.default({
-  el: "#app"
+  el: "#app",
+  data: {
+    loading1: false,
+    loading2: true,
+    loading3: false
+  }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
