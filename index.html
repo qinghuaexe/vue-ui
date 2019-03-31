@@ -22,12 +22,24 @@
         --border-color-hover: #666;
       }
       #app {
-        margin: 20px 20px;
-        
+        margin: 20px 20px;        
       }
       body {
         font-size: var(--font-size);
       }
+    </style>
+    <style>
+     @keyframes spin {
+         0%{
+             transform: rotate(0deg)
+         }
+         100%{
+             transform: rotate(360deg)
+         }
+     }
+     .loading{
+         animation: spin 2s infinite linear;
+     }
     </style>
   </head>
   <body>
@@ -42,8 +54,9 @@
         按钮
       </g-button>
       <g-icon name='shezhi'></g-icon>
+      <g-icon name='loading' class="loading"></g-icon>
     </div>
     <script src="/src/app.js"></script>
-    <script src="//at.alicdn.com/t/font_1112320_vxqsl2sw0ls.js"></script>
+    <script src="//at.alicdn.com/t/font_1112320_la6m7g2ugc.js"></script>
   </body>
 </html>
