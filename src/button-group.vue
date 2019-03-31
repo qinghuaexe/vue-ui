@@ -9,8 +9,9 @@ export default {
     for (let node of this.$el.children) {
       let name = node.nodeName.toLowerCase();
       if (name !== "button") {
-          console.warn(`g-button-group的子元素只允许时g-button,但是你写的时${name}`);
-          
+        console.warn(
+          `g-button-group的子元素只允许时g-button,但是你写的时${name}`
+        );
       }
     }
   }
@@ -22,7 +23,9 @@ export default {
   vertical-align: middle;
   > .g-button {
     border-radius: 0;
-    margin-left: -1px;
+    &:not(:nth-child) {
+      margin-left: -1px;
+    }
     &:first-child {
       border-top-left-radius: var(--border-radius);
       border-bottom-left-radius: var(--border-radius);
