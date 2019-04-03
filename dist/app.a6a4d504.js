@@ -12687,6 +12687,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   components: {
     Icon: _icon.default
@@ -12728,7 +12732,21 @@ exports.default = _default;
     [
       _c("input", {
         attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
-        domProps: { value: _vm.value }
+        domProps: { value: _vm.value },
+        on: {
+          change: function($event) {
+            return _vm.$emit("change", $event.target.value)
+          },
+          input: function($event) {
+            return _vm.$emit("input", $event.target.value)
+          },
+          focus: function($event) {
+            return _vm.$emit("focus", $event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$emit("blur", $event.target.value)
+          }
+        }
       }),
       _vm._v(" "),
       _vm.error
@@ -12805,7 +12823,8 @@ new _vue.default({
   data: {
     loading1: false,
     loading2: true,
-    loading3: false
+    loading3: false,
+    message: 'hi'
   }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./Input.vue":"src/Input.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
