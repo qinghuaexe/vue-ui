@@ -12820,6 +12820,15 @@ var _default = {
     this.$children.forEach(function (vm) {
       vm.gutter = _this.gutter;
     });
+  },
+  computed: {
+    rowStyle: function rowStyle() {
+      var gutter = this.gutter;
+      return {
+        marginLeft: -gutter / 2 + 'px',
+        marginRight: -gutter / 2 + 'px'
+      };
+    }
   }
 };
 exports.default = _default;
@@ -12837,13 +12846,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "row",
-      style: {
-        marginLeft: -_vm.gutter / 2 + "px",
-        marginRight: -_vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "row", style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
@@ -12888,8 +12891,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-//
-//
 //
 //
 //
@@ -12940,14 +12941,8 @@ exports.default = _default;
   return _c(
     "div",
     { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
-    [
-      _c(
-        "div",
-        { staticStyle: { border: "1px solid green", height: "100px" } },
-        [_vm._t("default")],
-        2
-      )
-    ]
+    [_vm._t("default")],
+    2
   )
 }
 var staticRenderFns = []
