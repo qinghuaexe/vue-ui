@@ -12814,23 +12814,14 @@ var _default = {
       type: [Number, String]
     }
   },
-  created: function created() {
-    console.log('row created');
-  },
   mounted: function mounted() {
     var _this = this;
 
-    console.log('row mounted');
-    console.log(this.$children);
     this.$children.forEach(function (vm) {
       vm.gutter = _this.gutter;
     });
   }
-}; //   var div = document.createElement('div') // created
-//   var childDiv = document.createElement('div') // child created
-//   div.appendChild(childDiv) // child mounted
-//   document.body.appendChild(div) // mounted
-
+};
 exports.default = _default;
         var $53992d = exports.default || module.exports;
       
@@ -12904,7 +12895,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   name: "GuluCol",
   props: {
@@ -12919,6 +12909,19 @@ var _default = {
     return {
       gutter: 0
     };
+  },
+  computed: {
+    colClass: function colClass() {
+      var span = this.span,
+          offset = this.offset;
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)];
+    },
+    colStyle: function colStyle() {
+      return {
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px'
+      };
+    }
   }
 };
 exports.default = _default;
@@ -12936,17 +12939,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "col",
-      class: [
-        _vm.span && "col-" + _vm.span,
-        _vm.offset && "offset-" + _vm.offset
-      ],
-      style: {
-        paddingLeft: _vm.gutter / 2 + "px",
-        paddingRight: _vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
     [
       _c(
         "div",
@@ -13058,7 +13051,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49945" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65311" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
