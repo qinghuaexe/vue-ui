@@ -20,7 +20,7 @@ export default {
   mounted() {
     this.$children.forEach(vm => {
       vm.gutter = this.gutter
-    });
+    })
   },
   computed: {
     rowStyle() {
@@ -28,7 +28,7 @@ export default {
       return {
         marginLeft: -gutter / 2 + "px",
         marginRight: -gutter / 2 + "px"
-      };
+      }
     },
     rowClass() {
       let { align } = this
@@ -40,6 +40,7 @@ export default {
 <style scoped lang="scss">
 .row {
   display: flex;
+  flex-wrap: wrap;
   &.align-left {
     justify-content: flex-start;
   }

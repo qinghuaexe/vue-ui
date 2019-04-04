@@ -26,53 +26,26 @@
       body {
         font-size: var(--font-size);
       }
-      hr{
+      hr {
         margin: 20px 0;
       }</style>
-    <style></style>
+    <style>.demobox {
+        background: gray;
+        height: 50px;
+        border: 1px solid red;
+      }</style>
   <link rel="stylesheet" href="/app.a6a4d504.css"></head>
   <body>
     <div id="app">
       <div style="border: 1px solid black;">
-    <g-row gutter="20">
-      <g-col>1</g-col>
-      <g-col>2</g-col>
-    </g-row>
-    <g-row gutter="20">
-      <g-col>1</g-col>
-      <g-col>2</g-col>
-      <g-col>3</g-col>
-    </g-row>
-    <g-row gutter="20">
-      <g-col>1</g-col>
-      <g-col>2</g-col>
-      <g-col>3</g-col>
-      <g-col>4</g-col>
-    </g-row>
-    <g-row gutter="20">
-      <g-col span="2">1</g-col>
-      <g-col span="20" offset="2">11</g-col>
-    </g-row>
-    <g-row gutter="20">
-      <g-col span="4">1</g-col>
-      <g-col span="20">11</g-col>
-    </g-row>
-    <g-row gutter="20">
-      <g-col span="4">1</g-col>
-      <g-col span="18" offset="2">11</g-col>
-    </g-row>
-    <g-row gutter="20">
-      <g-col span="4">1</g-col>
-      <g-col span="8" offset="2">11</g-col>
-      <g-col span="8" offset="2">11</g-col>
-    </g-row>
-    <g-row gutter="20">
-      <g-col span="4">1</g-col>
-      <g-col span="4" offset="6">11</g-col>
-      <g-col span="8" offset="2">11</g-col>
-    </g-row>
-  </div>
-      <hr>
+        <g-row gutter="20">
+          <g-col span="2" :phone="{span:24}" :ipad="{span:8}" :narrow-pc="{span:4}" :pc="{span:2}" :wide-pc="{span:1}">
+            1
+          </g-col>
+          <g-col span="22" :phone="{span:24}" :ipad="{span:16}" :narrow-pc="{span:20}" :pc="{span:22}" :wide-pc="{span:23}">11 </g-col>
+        </g-row>
+      </div>
+      <!-- <hr />
       <g-button :loading="loading1" @click="loading1 = !loading1">
         按钮
       </g-button>
@@ -90,15 +63,15 @@
       <div class="box">
         <g-input value="王" v-model="message"></g-input>
         <p>{{ message }}</p>
-        <g-input value="张三" disabled=""></g-input>
-        <g-input value="李四" readonly=""></g-input>
+        <g-input value="张三" disabled></g-input>
+        <g-input value="李四" readonly></g-input>
         <g-input value="王五"></g-input>
         <g-input value="王五"></g-input>
         <g-input value="王五"></g-input>
       </div>
       <div class="box">
         <g-input value="王" error="姓名不能少于两个字"></g-input>
-      </div>
+      </div> -->
     </div>
     <script src="/app.a6a4d504.js"></script>
     <script src="//at.alicdn.com/t/font_1112320_hkwlx6nwjqw.js"></script>
