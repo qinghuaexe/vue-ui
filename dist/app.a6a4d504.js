@@ -13392,7 +13392,32 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: "GuluToast"
+  name: "GuluToast",
+  props: {
+    autoClose: {
+      type: Boolean,
+      default: true
+    },
+    autoCloseDelay: {
+      type: Number,
+      default: 5
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    if (this.autoClose) {
+      setTimeout(function () {
+        _this.close();
+      }, this.autoCloseDelay * 1000);
+    }
+  },
+  methods: {
+    close: function close() {
+      this.$el.remove();
+      this.$destroy();
+    }
+  }
 };
 exports.default = _default;
         var $d3aab5 = exports.default || module.exports;
