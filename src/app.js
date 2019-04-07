@@ -12,6 +12,7 @@ import Content from './content'
 import Footer from './footer'
 import Toast from './toast'
 import plugin from './plugin'
+import createElement from 'vue'
 
 Vue.component('g-icon', Icon)
 Vue.component('g-button', Button)
@@ -27,6 +28,8 @@ Vue.component('g-sider', Sider)
 Vue.component('g-toast', Toast)
 Vue.use(plugin)
 
+const h = createElement
+
 new Vue({
   el: '#app',
   data: {
@@ -35,9 +38,14 @@ new Vue({
     loading3: false,
     message: 'hi'
   },
+  created(){
+    this.$toast('<a href="http://baidu.com">百度一下，你就知道</a>', {
+      enableHtml: true
+    })
+  },
   methods: {
     showToast() {
-      this.$toast('我是 message')
+      
     }
   }
 })
