@@ -959,3 +959,23 @@
   border-left: 1px solid #666;
   margin-left: 16px;
 }
+.tabs-head[data-v-1efaca] {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid red;
+}
+.tabs-head > .actions-wrapper[data-v-1efaca] {
+  margin-left: auto;
+}
+.tabs-item[data-v-6f7997] {
+  flex-shrink: 0;
+  padding: 0 1em;
+}
+.tabs-item.active[data-v-6f7997] {
+  background: red;
+}
+.tabs-pane.active[data-v-093576] {
+  background: red;
+}

@@ -5,7 +5,7 @@
 </template>
 <script>
   export default {
-    name: 'GuluTabsBody'
+    inject: ['eventBus']
   }
 </script>
 <style>

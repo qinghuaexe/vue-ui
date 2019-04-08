@@ -13624,13 +13624,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _vue = _interopRequireDefault(require("vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
 //
 //
 var _default = {
-  name: 'GuluTabs',
   props: {
     selected: {
       type: String,
@@ -13638,13 +13642,25 @@ var _default = {
     },
     direction: {
       type: String,
-      default: 'horizontal',
+      default: "horizontal",
       validator: function validator(value) {
-        return ['horizontal', 'vertical'].indexOf(value) >= 0;
+        return ["horizontal", "vertical"].indexOf(value) >= 0;
       }
     }
   },
-  created: function created() {// this.$emit('update:selected', 'xxx')
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    // this.$emit('update:selected', '这是 this $emit 出来的数据')
+    this.eventBus.$emit("update:selected", this.selected); // // this.$emit('update:selected', 'xxx')
   }
 };
 exports.default = _default;
@@ -13695,7 +13711,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-head.vue":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/tabs-head.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13708,8 +13724,13 @@ exports.default = void 0;
 //
 //
 //
+//
+//
 var _default = {
-  name: 'GuluTabsHead'
+  inject: ["eventBus"],
+  created: function created() {
+    this.$emit("update:selected", "tabs-head 抛出的数据");
+  }
 };
 exports.default = _default;
         var $1efaca = exports.default || module.exports;
@@ -13727,7 +13748,11 @@ exports.default = _default;
   return _c(
     "div",
     { staticClass: "tabs-head" },
-    [_vm._t("default"), _vm._v(" "), _vm._t("actions")],
+    [
+      _vm._t("default"),
+      _vm._v(" "),
+      _c("div", { staticClass: "actions-wrapper" }, [_vm._t("actions")], 2)
+    ],
     2
   )
 }
@@ -13738,7 +13763,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-1efaca",
             functional: undefined
           };
         })());
@@ -13777,7 +13802,7 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: 'GuluTabsBody'
+  inject: ['eventBus']
 };
 exports.default = _default;
         var $fd06e1 = exports.default || module.exports;
@@ -13839,12 +13864,44 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
-  name: 'GuluTabsItem',
+  inject: ["eventBus"],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
   props: {
     disabled: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String | Number,
+      required: true
+    }
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        active: this.active
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    this.eventBus.$on("update:selected", function (name) {
+      _this.active = name === _this.name;
+    });
+  },
+  methods: {
+    xxx: function xxx() {
+      this.eventBus.$emit("update:selected", this.name);
     }
   }
 };
@@ -13861,7 +13918,12 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs-item" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    { staticClass: "tabs-item", class: _vm.classes, on: { click: _vm.xxx } },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13870,7 +13932,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-6f7997",
             functional: undefined
           };
         })());
@@ -13908,8 +13970,37 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
-  name: 'GuluTabsPane'
+  inject: ["eventBus"],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
+  props: {
+    name: {
+      type: String | Number,
+      required: true
+    }
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        active: this.active
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    this.eventBus.$on("update:selected", function (name) {
+      _this.active = name === _this.name;
+    });
+  }
 };
 exports.default = _default;
         var $093576 = exports.default || module.exports;
@@ -13924,7 +14015,14 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs-pane" }, [_vm._t("default")], 2)
+  return _vm.active
+    ? _c(
+        "div",
+        { staticClass: "tabs-pane", class: _vm.classes },
+        [_vm._t("default")],
+        2
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13933,7 +14031,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: null,
+            _scopeId: "data-v-093576",
             functional: undefined
           };
         })());
@@ -14046,6 +14144,10 @@ new _vue.default({
   },
   created: function created() {},
   methods: {
+    yyy: function yyy(data) {
+      console.log('yyy');
+      console.log(data);
+    },
     showToast1: function showToast1() {
       this.showToast('top');
     },
@@ -14099,7 +14201,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62180" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51380" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

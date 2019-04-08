@@ -7,11 +7,11 @@
 export default {
   mounted() {
     for (let node of this.$el.children) {
-      let name = node.nodeName.toLowerCase();
+      let name = node.nodeName.toLowerCase()
       if (name !== "button") {
         console.warn(
           `g-button-group的子元素只允许时g-button,但是你写的时${name}`
-        );
+        )
       }
     }
   }
