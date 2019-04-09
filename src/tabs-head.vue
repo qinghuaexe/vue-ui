@@ -14,28 +14,29 @@
 export default {
   name: "GuluTabsHead",
   inject: ["eventBus"],
-  created() {
+  mounted() {
     this.eventBus.$on("update:selected", (item, vm) => {
-      console.log(item)
+      let { width, height, top, left } = vm.$el.getBoundingClientRect()
+      this.$refs.line.style.width = `${width}px`
+      this.$refs.line.style.left = `${left}px`
     })
   }
 }
 </script>
 <style scoped lang="scss">
 $tab-height: 40px;
- $blue: blue;
+$blue: blue;
 .tabs-head {
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
-  border: 1px solid red;
   position: relative;
-    > .line {
-      position: absolute;
-      bottom: 0;
-      border-bottom: 1px solid $blue;
-      width: 100px;
-    }
+  > .line {
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid $blue;
+    transition: all 350ms;
+  }
   > .actions-wrapper {
     margin-left: auto;
   }
