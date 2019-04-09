@@ -13659,7 +13659,17 @@ var _default = {
     };
   },
   mounted: function mounted() {
-    this.eventBus.$emit("update:selected", this.selected);
+    var _this = this;
+
+    this.$children.forEach(function (vm) {
+      if (vm.$options.name === "GuluTabsHead") {
+        vm.$children.forEach(function (childVm) {
+          if (childVm.$options.name === "GuluTabsItem" && childVm.name === _this.selected) {
+            _this.eventBus.$emit("update:selected", _this.selected, childVm);
+          }
+        });
+      }
+    });
   }
 };
 exports.default = _default;
@@ -13725,9 +13735,18 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
-  name: 'GuluTabsHead',
-  inject: ["eventBus"]
+  name: "GuluTabsHead",
+  inject: ["eventBus"],
+  created: function created() {
+    this.eventBus.$on("update:selected", function (item, vm) {
+      console.log(item);
+    });
+  }
 };
 exports.default = _default;
         var $1efaca = exports.default || module.exports;
@@ -13747,6 +13766,8 @@ exports.default = _default;
     { staticClass: "tabs-head" },
     [
       _vm._t("default"),
+      _vm._v(" "),
+      _c("div", { ref: "line", staticClass: "line" }),
       _vm._v(" "),
       _c("div", { staticClass: "actions-wrapper" }, [_vm._t("actions")], 2)
     ],
@@ -13900,7 +13921,7 @@ var _default = {
   },
   methods: {
     xxx: function xxx() {
-      this.eventBus.$emit("update:selected", this.name);
+      this.eventBus.$emit("update:selected", this.name, this);
     }
   }
 };
