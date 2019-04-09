@@ -14004,7 +14004,7 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: 'GuluTabsPane',
+  name: "GuluTabsPane",
   inject: ["eventBus"],
   data: function data() {
     return {

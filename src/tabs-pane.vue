@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: 'GuluTabsPane',
+  name: "GuluTabsPane",
   inject: ["eventBus"],
   data() {
     return {
@@ -38,8 +38,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tabs-pane {
-  &.active {
-    background: red;
-  }
+  padding: 1em;
 }
 </style> 

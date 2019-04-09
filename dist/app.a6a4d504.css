@@ -964,6 +964,7 @@
   height: 40px;
   justify-content: flex-start;
   position: relative;
+  border-bottom: 1px solid #ddd;
 }
 .tabs-head > .line[data-v-1efaca] {
   position: absolute;
@@ -973,6 +974,10 @@
 }
 .tabs-head > .actions-wrapper[data-v-1efaca] {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
 }
 .tabs-item[data-v-6f7997] {
   flex-shrink: 0;
@@ -986,6 +991,6 @@
   color: blue;
   font-weight: bold;
 }
-.tabs-pane.active[data-v-093576] {
-  background: red;
+.tabs-pane[data-v-093576] {
+  padding: 1em;
 }
