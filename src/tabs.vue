@@ -29,10 +29,8 @@ export default {
       eventBus: this.eventBus
     }
   },
-  mounted() {
-    // this.$emit('update:selected', '这是 this $emit 出来的数据')
+  mounted() {  
     this.eventBus.$emit("update:selected", this.selected)
-    // // this.$emit('update:selected', 'xxx')
   }
 }
 </script>

@@ -13659,8 +13659,7 @@ var _default = {
     };
   },
   mounted: function mounted() {
-    // this.$emit('update:selected', '这是 this $emit 出来的数据')
-    this.eventBus.$emit("update:selected", this.selected); // // this.$emit('update:selected', 'xxx')
+    this.eventBus.$emit("update:selected", this.selected);
   }
 };
 exports.default = _default;
@@ -13727,10 +13726,8 @@ exports.default = void 0;
 //
 //
 var _default = {
-  inject: ["eventBus"],
-  created: function created() {
-    this.$emit("update:selected", "tabs-head 抛出的数据");
-  }
+  name: 'GuluTabsHead',
+  inject: ["eventBus"]
 };
 exports.default = _default;
         var $1efaca = exports.default || module.exports;
@@ -13802,6 +13799,7 @@ exports.default = void 0;
 //
 //
 var _default = {
+  name: 'GuluTabsBody',
   inject: ['eventBus']
 };
 exports.default = _default;
@@ -13869,6 +13867,7 @@ exports.default = void 0;
 //
 //
 var _default = {
+  name: "GuluTabsItem",
   inject: ["eventBus"],
   data: function data() {
     return {
@@ -13975,6 +13974,7 @@ exports.default = void 0;
 //
 //
 var _default = {
+  name: 'GuluTabsPane',
   inject: ["eventBus"],
   data: function data() {
     return {

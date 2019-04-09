@@ -8,10 +8,8 @@
 </template>
 <script>
 export default {
-  inject: ["eventBus"],
-  created() {
-    this.$emit("update:selected", "tabs-head 抛出的数据")
-  }
+  name: 'GuluTabsHead',
+  inject: ["eventBus"]
 }
 </script>
 <style scoped lang="scss">
@@ -20,7 +18,6 @@ $tab-height: 40px;
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
-  align-items: center;
   border: 1px solid red;
   > .actions-wrapper {
     margin-left: auto;
