@@ -18,6 +18,8 @@ import TabsHead from './tabs-head'
 import TabsBody from './tabs-body'
 import TabsItem from './tabs-item'
 import TabsPane from './tabs-pane'
+import Popover from './popover'
+
 Vue.component('g-icon', Icon)
 Vue.component('g-button', Button)
 Vue.component('g-button-group', ButtonGroup)
@@ -30,6 +32,7 @@ Vue.component('g-content', Content)
 Vue.component('g-footer', Footer)
 Vue.component('g-sider', Sider)
 Vue.component('g-toast', Toast)
+Vue.component('g-popover', Popover)
 
 
 Vue.component('g-tabs', Tabs)
