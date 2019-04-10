@@ -14121,6 +14121,7 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
   name: "GuluPopover",
   data: function data() {
@@ -14129,33 +14130,46 @@ var _default = {
     };
   },
   methods: {
-    xxx: function xxx() {
+    positionContent: function positionContent() {
+      document.body.appendChild(this.$refs.contentWrapper);
+
+      var _this$$refs$triggerWr = this.$refs.triggerWrapper.getBoundingClientRect(),
+          width = _this$$refs$triggerWr.width,
+          height = _this$$refs$triggerWr.height,
+          top = _this$$refs$triggerWr.top,
+          left = _this$$refs$triggerWr.left;
+
+      this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
+      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+    },
+    onClickDocument: function onClickDocument(e) {
+      if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
+        return;
+      }
+
+      this.close();
+    },
+    open: function open() {
       var _this = this;
 
-      this.visible = !this.visible;
+      this.visible = true;
+      this.$nextTick(function () {
+        _this.positionContent();
 
-      if (this.visible === true) {
-        this.$nextTick(function () {
-          document.body.appendChild(_this.$refs.contentWrapper);
-
-          var _this$$refs$triggerWr = _this.$refs.triggerWrapper.getBoundingClientRect(),
-              width = _this$$refs$triggerWr.width,
-              height = _this$$refs$triggerWr.height,
-              top = _this$$refs$triggerWr.top,
-              left = _this$$refs$triggerWr.left;
-
-          _this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
-          _this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
-
-          var eventHandler = function eventHandler() {
-            _this.visible = false;
-            document.removeEventListener("click", eventHandler);
-          };
-
-          document.addEventListener("click", eventHandler);
-        });
-      } else {
-        console.log("vm 隐藏 popover");
+        document.addEventListener("click", _this.onClickDocument);
+      });
+    },
+    close: function close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocument);
+    },
+    onClick: function onClick(event) {
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        if (this.visible === true) {
+          this.close();
+        } else {
+          this.open();
+        }
       }
     }
   }
@@ -14175,15 +14189,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "popover",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          return _vm.xxx($event)
-        }
-      }
-    },
+    { ref: "popover", staticClass: "popover", on: { click: _vm.onClick } },
     [
       _vm.visible
         ? _c(
@@ -14378,7 +14384,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51380" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58751" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
