@@ -1002,10 +1002,9 @@
   vertical-align: top;
   position: relative;
 }
-.popover .content-wrapper[data-v-81dd5a] {
+.content-wrapper[data-v-81dd5a] {
   position: absolute;
-  bottom: 100%;
-  left: 0;
   border: 1px solid red;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transform: translateY(-100%);
 }
