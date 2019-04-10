@@ -13658,7 +13658,14 @@ var _default = {
       eventBus: this.eventBus
     };
   },
-  mounted: function mounted() {
+  methods: {
+    checkChildren: function checkChildren() {
+      if (this.$children.length === 0) {
+        console && console.warn && console.warn("tabs的子组件应该是tabs-head和tabs-nav，但你没有写子组件");
+      }
+    }
+  },
+  selectTab: function selectTab() {
     var _this = this;
 
     this.$children.forEach(function (vm) {
@@ -13670,6 +13677,10 @@ var _default = {
         });
       }
     });
+  },
+  mounted: function mounted() {
+    this.checkChildren();
+    this.selectTab();
   }
 };
 exports.default = _default;
