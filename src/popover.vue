@@ -1,11 +1,12 @@
 <template>
   <div
     class="popover"
-    @click="xxx"
+    @click.stop="xxx"
   >
     <div
       class="content-wrapper"
       v-if="visible"
+      @click.stop
     >
       <slot name="content"></slot>
     </div>
@@ -22,6 +23,18 @@ export default {
   methods: {
     xxx() {
       this.visible = !this.visible
+      if (this.visible === true) {
+        this.$nextTick(() => {
+          let eventHandler = () => {
+            this.visible = false
+            console.log("document 隐藏 popover")
+            document.removeEventListener("click", eventHandler)
+          }
+          document.addEventListener("click", eventHandler)
+        })
+      } else {
+        console.log("vm 隐藏 popover")
+      }
     }
   }
 }
