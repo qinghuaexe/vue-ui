@@ -1029,10 +1029,12 @@
 }
 .content-wrapper.position-top[data-v-81dd5a]::before {
   border-top-color: black;
+  border-bottom: none;
   top: 100%;
 }
 .content-wrapper.position-top[data-v-81dd5a]::after {
   border-top-color: white;
+  border-bottom: none;
   top: calc(100% - 1px);
 }
 .content-wrapper.position-bottom[data-v-81dd5a] {
@@ -1043,10 +1045,12 @@
 }
 .content-wrapper.position-bottom[data-v-81dd5a]::before {
   border-bottom-color: black;
+  border-top: none;
   bottom: 100%;
 }
 .content-wrapper.position-bottom[data-v-81dd5a]::after {
   border-bottom-color: white;
+  border-top: none;
   bottom: calc(100% - 1px);
 }
 .content-wrapper.position-left[data-v-81dd5a] {
@@ -1059,10 +1063,12 @@
 }
 .content-wrapper.position-left[data-v-81dd5a]::before {
   border-left-color: black;
+  border-right: none;
   left: 100%;
 }
 .content-wrapper.position-left[data-v-81dd5a]::after {
   border-left-color: white;
+  border-right: none;
   left: calc(100% - 1px);
 }
 .content-wrapper.position-right[data-v-81dd5a] {
@@ -1074,9 +1080,11 @@
 }
 .content-wrapper.position-right[data-v-81dd5a]::before {
   border-right-color: black;
+  border-left: none;
   right: 100%;
 }
 .content-wrapper.position-right[data-v-81dd5a]::after {
   border-right-color: white;
+  border-left: none;
   right: calc(100% - 1px);
 }
