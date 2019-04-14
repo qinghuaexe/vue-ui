@@ -1,47 +1,47 @@
-@keyframes spin {
-  0% {
+@keyframes spin-data-v-0f269f {
+0% {
     transform: rotate(0deg);
-  }
-  100% {
+}
+100% {
     transform: rotate(360deg);
-  }
 }
-.loading {
-  animation: spin 2s infinite linear;
 }
-
-.g-button {
-  font-size: var(--font-size);
-  height: var(--button-height);
+.loading[data-v-0f269f] {
+  animation: spin-data-v-0f269f 2s infinite linear;
+}
+.g-button[data-v-0f269f] {
+  font-size: 14px;
+  height: 32px;
   padding: 0 1em;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  background: var(--button-bg);
+  border-radius: 4px;
+  border: 1px solid #999;
+  background: white;
+  padding: 0 1em;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
 }
-.g-button:hover {
-  border-color: var(--border-color-hover);
+.g-button[data-v-0f269f]:hover {
+  border-color: #999;
 }
-.g-button:active {
-  background-color: var(--button-active-bg);
+.g-button[data-v-0f269f]:active {
+  background-color: #eee;
 }
-.g-button:focus {
+.g-button[data-v-0f269f]:focus {
   outline: none;
 }
-.g-button > .content {
+.g-button > .content[data-v-0f269f] {
   order: 2;
 }
-.g-button > .icon {
+.g-button > .icon[data-v-0f269f] {
   order: 1;
   margin-right: 0.1em;
 }
-.g-button.icon-right > .content {
+.g-button.icon-right > .content[data-v-0f269f] {
   order: 1;
 }
-.g-button.icon-right > .icon {
+.g-button.icon-right > .icon[data-v-0f269f] {
   order: 2;
   margin-left: 0.1em;
   margin-right: 0;
