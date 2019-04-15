@@ -13735,20 +13735,20 @@ var _default = {
       if (this.$children.length === 0) {
         console && console.warn && console.warn("tabs的子组件应该是tabs-head和tabs-nav，但你没有写子组件");
       }
-    }
-  },
-  selectTab: function selectTab() {
-    var _this = this;
+    },
+    selectTab: function selectTab() {
+      var _this = this;
 
-    this.$children.forEach(function (vm) {
-      if (vm.$options.name === "GuluTabsHead") {
-        vm.$children.forEach(function (childVm) {
-          if (childVm.$options.name === "GuluTabsItem" && childVm.name === _this.selected) {
-            _this.eventBus.$emit("update:selected", _this.selected, childVm);
-          }
-        });
-      }
-    });
+      this.$children.forEach(function (vm) {
+        if (vm.$options.name === "GuluTabsHead") {
+          vm.$children.forEach(function (childVm) {
+            if (childVm.$options.name === "GuluTabsItem" && childVm.name === _this.selected) {
+              _this.eventBus.$emit("update:selected", _this.selected, childVm);
+            }
+          });
+        }
+      });
+    }
   },
   mounted: function mounted() {
     this.checkChildren();
@@ -13835,8 +13835,11 @@ var _default = {
           top = _vm$$el$getBoundingCl.top,
           left = _vm$$el$getBoundingCl.left;
 
+      var _this$$refs$head$getB = _this.$refs.head.getBoundingClientRect(),
+          left2 = _this$$refs$head$getB.left;
+
       _this.$refs.line.style.width = "".concat(width, "px");
-      _this.$refs.line.style.left = "".concat(left, "px");
+      _this.$refs.line.style.left = "".concat(left - left2, "px");
     });
   }
 };
@@ -13855,7 +13858,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "tabs-head" },
+    { ref: "head", staticClass: "tabs-head" },
     [
       _vm._t("default"),
       _vm._v(" "),
@@ -14739,6 +14742,7 @@ var h = _vue.default;
 new _vue.default({
   el: '#app',
   data: {
+    selected: "1",
     selectedTab: ['2', '1']
   },
   created: function created() {},
