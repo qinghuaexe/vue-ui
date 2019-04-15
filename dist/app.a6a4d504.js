@@ -14245,7 +14245,7 @@ var _default = {
       this.$refs.popover.addEventListener("mouseleave", this.close);
     }
   },
-  destroyed: function destroyed() {
+  beforeDestroy: function beforeDestroy() {
     if (this.trigger === "click") {
       this.$refs.popover.removeEventListener("click", this.onClick);
     } else {
