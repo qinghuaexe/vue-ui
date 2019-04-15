@@ -1,6 +1,6 @@
 <template>
   <div
-    class="wrapper"
+    class="gulu-toast"
     :class="toastClasses"
   >
     <div
@@ -136,7 +136,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     opacity: 1;
   }
 }
-.wrapper {
+.gulu-toast {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);

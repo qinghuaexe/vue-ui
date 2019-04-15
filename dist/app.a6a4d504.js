@@ -13579,7 +13579,7 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
+  return _c("div", { staticClass: "gulu-toast", class: _vm.toastClasses }, [
     _c("div", { ref: "toast", staticClass: "toast" }, [
       _c(
         "div",
