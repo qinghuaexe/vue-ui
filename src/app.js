@@ -43,7 +43,6 @@ Vue.component('g-tabs-pane', TabsPane)
 Vue.component('g-collapse', Collapse)
 Vue.component('g-collapse-item', CollapseItem)
 
-
 Vue.use(plugin)
 const h = createElement
 new Vue({

@@ -14,13 +14,17 @@
       class="loading icon"
       v-if="loading"
     ></g-icon>
-    <div class="content">
+    <div class="slotContent">
       <slot></slot>
     </div>
   </button>
 </template>
 <script>
+import Icon from './icon'
 export default {
+  components: {
+   'g-icon': Icon
+  },
   props: {
     icon: {},
     loading: {
@@ -78,7 +82,7 @@ $border-color-hover: #666;
   &:focus {
     outline: none;
   }
-  > .content {
+  > .slotContent {
     order: 2;
   }
   > .icon {
@@ -87,7 +91,7 @@ $border-color-hover: #666;
   }
 
   &.icon-right {
-    > .content {
+    > .slotContent {
       order: 1;
     }
     > .icon {
